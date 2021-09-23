@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-6 mt-5">
+    <app-ghe
+      *ngFor="let ghe of DanhSachGhe"
+      [itemGhe]="ghe"
+      (emitStatus)="DatGheParent($event, ghe)"
+    ></app-ghe>
+
+    <hr />
+    <p>Số ghế đã đặt : {{ soGheDaDat }}</p>
+    <p>Số ghế còn lại : {{ soGheConLai }}</p>
+    <hr />
+  </div>
+
+  <div class="col-6 mt-5">
+    <h4 class="text-center">Ghế đang đặt</h4>
+    <p *ngFor="let gheDuocChon of DanhSachGheDangDat">
+      <span style="padding-right: 10px"> {{ gheDuocChon.TenGhe }}</span>
+      <span>Price: {{ gheDuocChon.Gia }}</span>
+    </p>
+    <p class="text-center" *ngIf="DanhSachGheDangDat.length > 0">
+      TotalPrice :{{ totalPrice }}
+    </p>
+  </div>
+</div>
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-4 mx-auto bg-info p-4 text-center text-white">
+      <h1 class="mt-0 text-white">Đặt ghế</h1>
+      <app-ghe
+        *ngFor="let ghe of DanhSachGhe"
+        [itemGhe]="ghe"
+        (emitStatus)="DatGheParent($event, ghe)"
+      ></app-ghe>
+      <hr />
+      <div *ngFor="let gheDuocChon of DanhSachGheDangDat">
+        <span>Tên Ghế : {{ gheDuocChon.TenGhe }}</span>
+        <span>Giá : {{ gheDuocChon.Gia }}</span>
+      </div>
+      <hr />
+      <p>Số ghế đã đặt : {{ soGheDaDat }}</p>
+      <p>Số ghế còn lại : {{ soGheConLai }}</p>
+    </div>
+  </div>
+</div> -->
